@@ -1,20 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@600&display=swap');
+from . import db,login_manager
+from datetime import datetime
+from flask_login import UserMixin,current_user
+from werkzeug.security import generate_password_hash,check_password_hash
 
-body {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    /*background: #230e4a;*/
-    z-index: 1;
-    background: linear-gradient(to bottom right, #230e4a, black);
-    font-family: 'Josefin Slab', serif;
-}
-
-#particles-js {
-    height: auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    z-index: 1;
-}
+class User(UserMixin, db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(255),unique = True,nullable = False)
+    email  = db.Column(db.String(255),unique = True,nullable = False)
+    secure_password = db.Column(db.String(255),nullable = False)
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
+    pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
+    comment = db.relationship('Comment', backref='user', lazy='dynamic')
+    upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
+    downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
+    
