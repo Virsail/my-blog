@@ -6,7 +6,7 @@ class Config:
     '''
     general configuration
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://virsail:sophy@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://virsail:sophy@localhost/chero'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

@@ -27,7 +27,7 @@ def create_app(config_name):
     # Creating the app configurations
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://virsail:sophy@localhost/blog'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://virsail:sophy@localhost/chero'
     app.config['SECRET_KEY'] = 'sijui '
 
    # Creating the app configurations
