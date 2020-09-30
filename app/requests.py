@@ -1,8 +1,13 @@
-import requests
+import urllib.request,json
+from  urllib.request import urlopen
 
 
-def random_post():
-    url='http://quotes.stormconsultancy.co.uk/random.json'
-    pos= requests.get(url)
-    posts= pos.json()
-    return posts
+def get_blogs():
+    get_blogs_url = 'http://quotes.stormconsultancy.co.uk/random.json'
+
+
+    with urllib.request.urlopen(get_blogs_url) as url:
+        blogs = url.read()
+        get_blogs_response = json.loads(blogs)
+
+    return get_blogs_response 

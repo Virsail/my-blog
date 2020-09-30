@@ -1,25 +1,20 @@
 from flask import render_template, redirect, url_for,abort,request
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Pitch,Comment
+from ..models import User,Pitch,Comment,Upvote,Downvote
 from .form import UpdateProfile,PitchForm,CommentForm
 from .. import db 
-from ..requests import random_post
+from ..requests import get_blogs
 
 @main.route('/')
 def index():
-
+    blogs = get_blogs()
     pitches = Pitch.query.all()
     job = Pitch.query.filter_by(category = 'Job').all() 
     event = Pitch.query.filter_by(category = 'Events').all()
     advertisement = Pitch.query.filter_by(category = 'Advertisement').all()
-    sambu = random_post()
-    quote = sambu["quote"]
-    quote_author = sambu ["author"]
     
-
-
-    return render_template('index.html', job = job,event = event, pitches = pitches, quote = quote , quote_author=quote_author , advertisement= advertisement)
+    return render_template('index.html', blogs = blogs, job = job,event = event, pitches = pitches,advertisement= advertisement)
 
 
 

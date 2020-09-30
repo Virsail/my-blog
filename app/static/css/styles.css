@@ -133,3 +133,13 @@
     padding: 5%;
     background-color: rgba(0, 0, 0, 0.4);
   }
+  .poem {
+    background-color: #1C2331;
+    color: white;
+  }
+  .header{
+    color: #1C2331;
+  }
+  .ata {
+    background-color: black;
+  }
