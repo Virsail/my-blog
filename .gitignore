@@ -5,3 +5,4 @@ pitch/
 *.pyc
 __pycache__
 
+instance/
