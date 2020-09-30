@@ -1,17 +1,46 @@
 from flask import render_template, redirect, url_for,abort,request
 from . import main
 from flask_login import login_required,current_user
-from ..models import User
+from ..models import User,Pitch,Comment
 from .form import UpdateProfile,PitchForm,CommentForm
 from .. import db 
+from ..requests import random_post
 
 @main.route('/')
 def index():
+
     pitches = Pitch.query.all()
     job = Pitch.query.filter_by(category = 'Job').all() 
     event = Pitch.query.filter_by(category = 'Events').all()
     advertisement = Pitch.query.filter_by(category = 'Advertisement').all()
-    return render_template('index.html', job = job,event = event, pitches = pitches,advertisement= advertisement)
+    sambu = random_post()
+    quote = sambu["quote"]
+    quote_author = sambu ["author"]
+    
+
+
+    return render_template('index.html', job = job,event = event, pitches = pitches, quote = quote , quote_author=quote_author , advertisement= advertisement)
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required
@@ -26,7 +55,7 @@ def new_pitch():
         new_pitch_object.save_p()
         return redirect(url_for('main.index'))
         
-    return render_template('create_pitch.html', form = form)
+    return render_template('create_blog.html', form = form)
 
 @main.route('/comment/<int:pitch_id>', methods = ['POST','GET'])
 @login_required

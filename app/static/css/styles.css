@@ -88,7 +88,8 @@
     display: none;
   }
   .jomba {
-    background-image: url(../photos/blue.jpeg);
+    
+    background-color: #1C2331;
   }
   .kati {
     color: white;
@@ -118,4 +119,17 @@
   .twende {
     background-image: url(../photos/blue.jpeg);
   }
-    
+  .personal {
+    text-align: center;
+    color: white;
+    background-color: #1C2331;
+  }
+  .post {
+    text-align: center;
+    font-size: 150%;
+    font-family: Courgette;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 5%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
