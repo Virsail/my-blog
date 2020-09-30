@@ -7,7 +7,7 @@
 This is a flask appication that allows a user to write a blog ,see all other posted blogs .A writer is able to sign in and write a blog ,the writer gets to delete a blog he or she does not like or finds inapropriate ,the writer also gets liberty of saving his or her credentials to the user profile page.
 
 ## Live Link
-[View Site]( )
+[View Site](https://git.heroku.com/blosite.git/)
 
 ## User Story
 As a user i would like to:
